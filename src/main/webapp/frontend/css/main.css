@@ -1,0 +1,41 @@
+.wrapper {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+	border: thin solid #000000;
+}
+
+.logo {
+	background: url("../images/logo.png") no-repeat scroll left top
+		rgba(0, 0, 0, 0);
+	cursor: pointer;
+	float: left;
+	height: 73px;
+	width: 203px;
+}
+
+#top {
+	border-bottom: 4px solid #c81024;
+	height: 80px;
+	margin: 0 auto;
+	overflow: hidden;
+	width: 1001px;
+}
+
+.top_menu {
+	float: right;
+	width: 798px;
+}
+
+.clearfix:before,.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+} /*IE/7/6*/

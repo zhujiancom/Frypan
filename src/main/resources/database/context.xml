@@ -1,0 +1,18 @@
+<Context path="/frypan" crossContext="true" reloadable="true" >
+
+<Resource name="jdbc/frypan" auth="Container"
+					type="com.jolbox.bonecp.BoneCPDataSource"
+					factory="org.apache.naming.factory.BeanFactory"
+					driverClassName="com.mysql.jdbc.Driver"
+					jdbcUrl ="jdbc:mysql://localhost:3306/frypan?characterEncoding=UTF-8"
+					username="frypan"
+					password="frypan"
+					partitionCount="3"
+					acquireIncrement="5"
+					maxConnectionPerPartition="50"
+					initSQL="SELECT 1 FROM DUAL"
+					poolName="frypanPool"
+					closeConnectionWatch="true"
+					logStatementsEnabled="true"
+					/>
+</Context>
