@@ -1,19 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>bootstrap 模板</title>
+<title>系统登录</title>
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<link rel="icon" href="http://localhost//frypan.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="http://localhost//frypan.ico" type="image/x-icon"/>
+<link href="css/home.css" rel="stylesheet">
+<style type="text/css">
+html {
+	margin: 0;
+	padding: 0;
+	background: url(images/bg.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+</style>
 </head>
 <body>
-	<div id="wrapper">
-		<div id="contentPanel">
-			<div id="titlePanel"></div>
-			<div id="centerPanel"></div>
-			<div id="footerPanel"></div>
+	<div class="bwrapper">
+		<div id="logoBox"><img src="images/logo2.png" width="236px" height="236px" style="position:relative;left:30%;top:30%;"/></div>
+		<span id="separator"></span>
+		<div id="loginBox">
+			<div id="loginPanel">
+				<div id="titlePanel"><img src="images/users.png" width="100px" height="80px" style="margin-left:10px;margin-right:10px;"/><h3>The Frypan 订单管理系统</h3></div>
+				<div id="centerPanel">
+					<form action="" method="post" autocomplete="on">
+						<div style="position:relative;left:50px;top:50px;">
+							<div style="border:solid #e3e5e8 thin; height:24px; padding:2px; line-height:24px; width:230px; margin-bottom:15px;">
+								<img src="images/24x24/user_24x24.png"/>
+								<input type="text" placeholder="用户" class="sinputText" />
+							</div>
+							<div style="border:solid #e3e5e8 thin; height:24px; padding:2px; line-height:24px; width:230px; margin-bottom:15px;">
+								<img src="images/24x24/lock_24x24.png"/>
+								<input type="password" class="sinputText" placeholder="密码"/>
+							</div>
+							<input type="button" class="btns btn-primary" value="登录"/>
+						</div>
+						
+					</form>
+				</div>
+				<div id="footerPanel">
+					<p>作者： the frypan of putuo in shanghai</p>
+					<p>版权所有： the frypan of putuo in shanghai </p>
+					<p>联系邮箱：thefrypan2014pt@163.com</p>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
