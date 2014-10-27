@@ -5,6 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <!DOCTYPE html>
 <html>
@@ -13,19 +14,19 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<link rel="icon" href="<%=basePath %>frypan.ico" type="image/x-icon"/>
-<link rel="shortcut icon" href="<%=basePath %>frypan.ico" type="image/x-icon"/>
+<link rel="icon" href="<c:url value="frypan.ico"/>" type="image/x-icon"/>
+<link rel="shortcut icon" href="<c:url value="frypan.ico"/>" type="image/x-icon"/>
 
 <!-- 引入 Bootstrap -->
-<link href="../common/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="<%=basePath %>frontend/plugins/flexslider/flexslider.css" type="text/css" media="screen" />
+<link href="<c:url value="common/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+<link rel="stylesheet" href='<c:url value="frontend/plugins/flexslider/flexslider.css"/>' type="text/css" media="screen" />
 <link href="css/main.css" rel="stylesheet">
 <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
-<script src="../common/js/jquery-1.11.1.js"></script>
+<script src="<c:url value="common/js/jquery-1.11.1.js"/>"></script>
 <!-- 包括所有已编译的插件 -->
-<script src="../common/bootstrap/js/bootstrap.min.js"></script>
+<script src="<c:url value="common/bootstrap/js/bootstrap.min.js"/>"></script>
 
-<script src="<%=basePath %>frontend/plugins/flexslider/jquery.flexslider-min.js" type="application/javascript"></script>
+<script src="<c:url value="frontend/plugins/flexslider/jquery.flexslider-min.js"/>" type="application/javascript"></script>
 </head>
 
 <body>

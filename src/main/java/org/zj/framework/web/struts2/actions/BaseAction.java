@@ -23,7 +23,7 @@ import com.opensymphony.xwork2.ActionSupport;
  * @Date 2014年10月21日
  *	
  */
-@Component("baseAction")
+@Component("BaseAction")
 @Scope("prototype")
 public class BaseAction extends ActionSupport implements SessionAware,
 RequestAware, ApplicationAware,ParameterAware{
