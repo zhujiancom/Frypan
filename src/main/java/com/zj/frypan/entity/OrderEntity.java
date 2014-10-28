@@ -19,7 +19,7 @@ import javax.persistence.Version;
 import org.zj.framework.core.config.GlobalSettings;
 import org.zj.framework.core.entity.AccessoryEntity;
 
-import com.zj.frypan.FryPanTypes;
+import com.zj.frypan.enums.FryPanTypes;
 
 /**
  * @Description 业务订单类

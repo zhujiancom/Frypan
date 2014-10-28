@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.zj.frypan;
+package com.zj.frypan.enums;
 
 /**
  * @Description
