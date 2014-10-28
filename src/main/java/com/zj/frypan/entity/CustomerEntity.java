@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 
@@ -72,6 +73,7 @@ public class CustomerEntity extends AccessoryEntity{
 	 * @Date 2014年10月24日
 	 */
 	@Override
+	@Transient
 	public Serializable getId(){
 		// TODO Auto-generated method stub
 		return cusId;

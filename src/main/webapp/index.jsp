@@ -15,6 +15,6 @@
 <!-- </head> -->
 <!-- </html> -->
 
-<jsp:forward page="homeAction_init.action"></jsp:forward>
+<jsp:forward page="home"></jsp:forward>
 
 

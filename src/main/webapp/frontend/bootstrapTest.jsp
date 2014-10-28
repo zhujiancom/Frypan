@@ -27,7 +27,8 @@
 	<abbr title="World Wide Web">WWW</abbr>
 	<abbr title="Real Simple Syndication" class="initialism">RSS</abbr>
 
-	<table class="table table-hover table-bordered" style="width: 80%">
+	<table class="table table-hover table-bordered table-striped"
+		style="width: 80%">
 		<caption>悬停表格布局</caption>
 		<thead>
 			<tr>
@@ -38,7 +39,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>Tanmay</td>
+				<td><a>Tanmay</a></td>
 				<td>Bangalore</td>
 				<td>560001</td>
 			</tr>
@@ -146,5 +147,113 @@
 			</ul>
 		</div>
 	</nav>
+
+	<div class="container" style="background: #ccc">
+		<div class="row" style="border: thin solid #000">
+			<div class="col-xs-6 col-sm-3" style="border: thin solid #000">.col-xs-6
+				.col-sm-3Resize your viewport or check it out on your phone for an
+				example.</div>
+			<div class="col-xs-6 col-sm-3" style="border: thin solid #000">.col-xs-6
+				.col-sm-3</div>
+
+			<!-- Add the extra clearfix for only the required viewport -->
+			<div class="clearfix visible-xs-block"></div>
+
+			<div class="col-xs-6 col-sm-3" style="border: thin solid #000">.col-xs-6
+				.col-sm-3</div>
+			<div class="col-xs-6 col-sm-3" style="border: thin solid #000">.col-xs-6
+				.col-sm-3</div>
+		</div>
+
+		<div class="row" style="border: thin solid #000">
+			<div class="col-sm-5 col-md-6" style="border: thin solid #000">.col-sm-5
+				.col-md-6</div>
+			<div class="col-sm-5 col-sm-offset-2 col-md-6 col-md-offset-0"
+				style="border: thin solid #000">.col-sm-5 .col-sm-offset-2
+				.col-md-6 .col-md-offset-0</div>
+		</div>
+
+		<div class="row" style="border: thin solid #000">
+			<div class="col-sm-6 col-md-5 col-lg-6"
+				style="border: thin solid #000">.col-sm-6 .col-md-5 .col-lg-6</div>
+			<div
+				class="col-sm-6 col-md-5 col-md-offset-2 col-lg-6 col-lg-offset-0"
+				style="border: thin solid #000">.col-sm-6 .col-md-5
+				.col-md-offset-2 .col-lg-6 .col-lg-offset-0</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">.col-md-4</div>
+			<div class="col-md-4 col-md-offset-4">.col-md-4
+				.col-md-offset-4</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3 col-md-offset-3">.col-md-3
+				.col-md-offset-3</div>
+			<div class="col-md-3 col-md-offset-3">.col-md-3
+				.col-md-offset-3</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">.col-md-6
+				.col-md-offset-3</div>
+		</div>
+
+		<blockquote>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Integer posuere erat a ante.</p>
+			<footer>
+				Someone famous in <cite title="Source Title">Source Title</cite>
+			</footer>
+		</blockquote>
+		For example,
+		<code>&lt;section&gt;</code>
+		should be wrapped as inline.
+	</div>
+
+	<form class="form-inline" role="form">
+		<div class="form-group">
+			<label class="sr-only" for="exampleInputEmail2">Email address</label>
+			<input type="email" class="form-control" id="exampleInputEmail2"
+				placeholder="Enter email">
+		</div>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon">@</div>
+				<input class="form-control" type="email" placeholder="Enter email">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="sr-only" for="exampleInputPassword2">Password</label> <input
+				type="password" class="form-control" id="exampleInputPassword2"
+				placeholder="Password">
+		</div>
+		<div class="checkbox">
+			<label> <input type="checkbox"> Remember me
+			</label>
+		</div>
+		<button type="submit" class="btn btn-default">Sign in</button>
+	</form>
+	<button type="button" class="btn btn-primary">Primary</button>
+	<button type="button" class="btn btn-primary btn-sm">Primary</button>
+	<button type="button" class="btn btn-primary btn-xs">Primary</button>
+	<button type="button" class="btn btn-primary btn-lg">Primary</button>
+	<button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	<span class="caret"></span>
+	<a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+	<button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-search"></span></button>
+	
+	<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+  </ul>
+</div>
 </body>
 </html>

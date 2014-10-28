@@ -18,7 +18,7 @@
 	<!-- 访问静态变量 -->
 	<!-- <constant name="struts.ognl.allowStaticMethodAccess" value="true"/> --> 
 
-	<package name="common" extends="json-default">
+<!-- 	<package name="common" extends="json-default"> -->
 <!-- 		<interceptors> -->
 <!-- 			<interceptor name="configdebug" class="com.configdebug.interceptor.ConfigDebugInterceptor"> -->
 <!-- 				<param name="configFileLocation">/configdebug.properties</param> -->
@@ -30,6 +30,6 @@
 <!-- 		</interceptors> -->
 <!-- 		<default-interceptor-ref name="myStack"></default-interceptor-ref> -->
 		
-	</package>
+<!-- 	</package> -->
 	
 </struts>
