@@ -8,12 +8,11 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.ParameterAware;
 import org.apache.struts2.interceptor.RequestAware;
 import org.apache.struts2.interceptor.SessionAware;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -23,8 +22,9 @@ import com.opensymphony.xwork2.ActionSupport;
  * @Date 2014年10月21日
  *	
  */
-@Component("BaseAction")
-@Scope("prototype")
+//@Component("BaseAction")
+//@Scope("prototype")
+@ParentPackage("base-package")
 public class BaseAction extends ActionSupport implements SessionAware,
 RequestAware, ApplicationAware,ParameterAware{
 	/**

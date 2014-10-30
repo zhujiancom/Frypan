@@ -3,7 +3,18 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-<!-- 	<constant name="struts.convention.default.parent.package" value="rest-default"></constant> -->
-<!-- 	<constant name="struts.convention.action.suffix" value="Controller"></constant> -->
-<!-- 	<constant name="struts.convention.action.mapAllMatches" value="true"></constant> -->
+	<package name="base-default" extends="struts-default">
+		<global-results>
+			<result name="error">/WEB-INF/error.jsp</result>
+		</global-results>
+		
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="error"/>
+		</global-exception-mappings>
+	</package>
+
+	<package name="rest-package" extends="rest-default" namespace="/rest"/>
+	
+	<package name="base-package" extends="base-default" namespace="/">
+	</package>
 </struts>

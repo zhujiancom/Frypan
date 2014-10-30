@@ -7,14 +7,14 @@
 			+ path + "/";
 %>
 
-<!-- <!DOCTYPE html> -->
-<!-- <html> -->
-<!-- <head> -->
-<!-- <title>跳转...</title> -->
-<!-- <meta HTTP-EQUIV="REFRESH" CONTENT="0; URL=pt/homeAction_init.action"> -->
-<!-- </head> -->
-<!-- </html> -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>跳转...</title>
+<meta HTTP-EQUIV="REFRESH" CONTENT="0; URL=rest/home">
+</head>
+</html>
 
-<jsp:forward page="home"></jsp:forward>
+<%-- <jsp:forward page="home"></jsp:forward> --%>
 
 
