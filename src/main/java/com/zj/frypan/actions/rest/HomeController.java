@@ -15,7 +15,23 @@ import org.zj.framework.web.struts2.actions.RestAction;
  */
 public class HomeController extends RestAction{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -653799723469902249L;
+
 	public HttpHeaders index(){
-		return new DefaultHttpHeaders("index.jsp").disableCaching();
+		return new DefaultHttpHeaders("home").disableCaching();
+	}
+
+	/**
+	 * @Function
+	 * @return
+	 * @author zj
+	 * @Date 2014年10月31日
+	 */
+	@Override
+	public Object getModel(){
+		return null;
 	}
 }

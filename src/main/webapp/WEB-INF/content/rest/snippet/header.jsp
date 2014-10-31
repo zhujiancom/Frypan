@@ -23,7 +23,7 @@
 			<div class="row top_menu_2">
 				<ul class="col-md-12">
 					<li><a class="current">首页</a></li>
-					<li><a>浏览菜单</a></li>
+					<li><a href="../menu/menu">浏览菜单</a></li>
 					<li><a>开始订餐</a></li>
 					<li><a>查询订餐</a></li>
 					<li class="last_li"><a>帮助中心</a></li>

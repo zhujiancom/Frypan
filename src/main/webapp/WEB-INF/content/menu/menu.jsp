@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>浏览菜单</title>
 </head>
 <body>
-	The message is ${message }
+	Menu
 </body>
 </html>

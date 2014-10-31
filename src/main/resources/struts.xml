@@ -13,8 +13,8 @@
 		</global-exception-mappings>
 	</package>
 
-	<package name="rest-package" extends="rest-default" namespace="/rest"/>
+	<package name="rest-package" extends="rest-default" namespace="/"/>
 	
-	<package name="base-package" extends="base-default" namespace="/">
+	<package name="default-package" extends="base-default" namespace="/backend">
 	</package>
 </struts>
