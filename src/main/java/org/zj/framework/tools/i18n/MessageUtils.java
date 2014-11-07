@@ -31,7 +31,7 @@ public class MessageUtils{
 		if(logger.isDebugEnabled()){
 			logger.debug("loading message resources from {"+org.apache.commons.lang3.StringUtils.join(messageResourceFiles,GlobalConstants.COMMA)+"}");
 		}
-		if(GlobalSettings.getInstance().isReloadable()){
+		if(GlobalSettings.getInstance().isI18nReloadable()){
 			messageSource = new PathMatchingReloadableBundleMessageSource(messageResourceFiles);
 		}else{
 			messageSource = new PathMatchingBundleMessageSource(messageResourceFiles);

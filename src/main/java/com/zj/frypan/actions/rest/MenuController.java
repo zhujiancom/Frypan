@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.zj.frypan.actions.menu;
+package com.zj.frypan.actions.rest;
 
 import org.zj.framework.web.struts2.actions.Struts2DefaultAction;
 

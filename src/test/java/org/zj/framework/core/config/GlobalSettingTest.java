@@ -51,6 +51,6 @@ public class GlobalSettingTest{
 	@Test
 	public void testPropertyResourcesNames(){
 		GlobalSettings setting = GlobalSettings.getInstance();
-		System.out.println(setting.getPropertyResourcesNames());
+		System.out.println(setting.getPropertyResourcesNames()[0]);
 	}
 }

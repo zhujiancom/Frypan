@@ -33,6 +33,14 @@ public class GlobalConstants{
 
 	public static final String COMMA=",";
 
+	public static final String LEFT_SLASH = "/";
+
+	public static final String DOT = ".";
+
+	public static final String DASH = "-";
+
+	public static final String SEMICOLON = ";";
+
 	/**
 	 * 是否启用在不重启应用时reload配置文件
 	 */

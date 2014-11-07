@@ -1,0 +1,141 @@
+/**
+ * 
+ */
+package org.zj.framework.web.struts2.actions;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.util.UUID;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.struts2.ServletActionContext;
+
+/**
+ * @Description
+ * @author zj
+ * @Date 2014年11月4日
+ *	
+ */
+public abstract class UploadAction extends Struts2DefaultAction{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8480903108899465984L;
+
+	/*定义缓冲区大小16M*/
+	private static final int BUFFER_SIZE = 16*1024;
+
+	//multiple file upload
+	private File[] imageFiles;
+	private String[] imageFilesContentType;
+	private String[] imageFilesFileName;
+
+	protected void upload(){
+		String dirPath = getBasePath()+getDestinationPath();
+		checkDir(dirPath);
+		for(int i=0;i<imageFiles.length;i++){
+			String imageName = UUID.randomUUID().toString();
+			String fileType = getExtention(imageFilesFileName[i]);
+			String imageFilePath = dirPath+File.separator+imageName+fileType;
+			File destFile = new File(imageFilePath);
+			//			copyByChannel(imageFiles[i],destFile);
+			try{
+				FileUtils.copyFile(imageFiles[i],destFile);
+			}
+			catch(IOException e){
+				e.printStackTrace();
+			}
+		}
+	}
+
+	private void checkDir(String dirPath){
+		File dir = new File(dirPath);
+		if(!dir.exists()){
+			dir.mkdirs();
+		}
+	}
+
+	protected void copyByChannel(File src,File dest){
+		FileInputStream fin = null;
+		FileOutputStream fout = null;
+		FileChannel fcin = null;
+		FileChannel fcout = null;
+		try {
+			fin = new FileInputStream(src);
+			fout = new FileOutputStream(dest);
+			fcin = fin.getChannel();
+			fcout = fout.getChannel();
+			ByteBuffer buffer = ByteBuffer.allocate(BUFFER_SIZE);
+			while(true){
+				buffer.clear();
+				int r = fcin.read(buffer); //判断拷贝完成
+				if(r ==-1){
+					break;
+				}
+				buffer.flip();
+				fcout.write(buffer);
+			}
+		} catch (FileNotFoundException e) {
+		} catch (IOException e) {
+		}finally{
+			try {
+				if(fin != null){
+					fin.close();
+				}
+				if(fout != null){
+					fout.close();
+				}
+				fcin.close();
+				fout.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static String getExtention(String fileName){
+		int pos = fileName.lastIndexOf(".");
+		return fileName.substring(pos);
+	}
+
+	public String getBasePath(){
+		String basePath = ServletActionContext.getServletContext().getRealPath("/");
+		return basePath;
+	}
+
+	protected abstract String getDestinationPath();
+
+	public File[] getImageFiles(){
+		return this.imageFiles;
+	}
+
+
+	public void setImageFiles(File[] imageFiles){
+		this.imageFiles = imageFiles;
+	}
+
+
+	public String[] getImageFilesContentType(){
+		return this.imageFilesContentType;
+	}
+
+
+	public void setImageFilesContentType(String[] imageFilesContentType){
+		this.imageFilesContentType = imageFilesContentType;
+	}
+
+
+	public String[] getImageFilesFileName(){
+		return this.imageFilesFileName;
+	}
+
+
+	public void setImageFilesFileName(String[] imageFilesFileName){
+		this.imageFilesFileName = imageFilesFileName;
+	}
+}

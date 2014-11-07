@@ -81,6 +81,18 @@ public class GlobalSettings{
 		return reloadable;
 	}
 
+	public boolean isI18nReloadable(){
+		boolean i18nReload = false;
+		try{
+			boolean reloadableTemp = configuration.getBoolean(PropertyConstants.I18N_RELOADABLE);
+			i18nReload = reloadableTemp;
+		}
+		catch(NoSuchElementException e){
+			logger.warn(e);
+		}
+		return i18nReload;
+	}
+
 	private synchronized void loadGlobalSettings(){
 		String propFileName = GlobalConstants.GLOBAL_CONFIG_FILE;
 		logger.info("Trying to load global configuration file: " + propFileName);
@@ -88,10 +100,13 @@ public class GlobalSettings{
 			Resource res = new ClassPathResource(propFileName);
 			URL url = res.getURL();
 			configuration = new PropertiesConfiguration(url);
-			FileChangedReloadingStrategy strategy = new FileChangedReloadingStrategy();
-			strategy.setRefreshDelay(1000 * configuration
-					.getInt(PropertyConstants.GLOBAL_REFRESH_SECOND));
-			configuration.setReloadingStrategy(strategy);
+			if(isReloadable()){
+				FileChangedReloadingStrategy strategy = new FileChangedReloadingStrategy();
+				logger.debug("---------- refresh interval : "+configuration.getInt(PropertyConstants.GLOBAL_REFRESH_SECOND));
+				strategy.setRefreshDelay(1000 * configuration
+						.getInt(PropertyConstants.GLOBAL_REFRESH_SECOND));
+				configuration.setReloadingStrategy(strategy);
+			}
 			if(logger.isInfoEnabled()){
 				logger.info("Load " + propFileName + "from " + res.getURL());
 			}

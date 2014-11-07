@@ -18,6 +18,7 @@ public class PropertyConstants{
 	public static final String PROPERTY_RESOURCES="framework.properties.resources";
 
 	public static final String CONFIGURATION_RELOADABLE="framework.global.configuration.reloadable";
+	public static final String I18N_RELOADABLE="framework.i18n.resources.reloadable";
 	/*
 	 * 配置文件文件刷新时间
 	 */
