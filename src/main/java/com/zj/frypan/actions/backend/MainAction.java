@@ -26,7 +26,7 @@ public class MainAction extends UploadAction{
 	//	@Action("/ad/rotator") url只要有多层结构的话，不管url是不是全局限定名，namespace都是/，即有action annotation 决定
 	@Action("rotator")  //如果url不是全局限定名，则namespace 是由java package 的层级决定的。如果是全局限定名，则namespace由action annotation 决定
 	public void uploadImg(){
-		upload();
+		uploadToWebServer();
 	}
 	/**
 	 * @Function

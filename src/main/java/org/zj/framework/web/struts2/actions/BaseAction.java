@@ -7,7 +7,6 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.ParameterAware;
 import org.apache.struts2.interceptor.RequestAware;
@@ -86,21 +85,5 @@ RequestAware, ApplicationAware,ParameterAware{
 	@Override
 	public void setParameters(Map<String, String[]> parameters){
 		this.parameters = parameters;
-	}
-
-	/**
-	 * 
-	 * @Function 形如http://localhost:8080/项目名称
-	 * @return
-	 * @author zj
-	 * @Date 2014年10月21日
-	 */
-	public String getWebRootPath(){
-		String scheme = ServletActionContext.getRequest().getScheme(); // http
-		String contextPath = ServletActionContext.getRequest().getContextPath();  // project name
-		String serverName = ServletActionContext.getRequest().getServerName(); //localhost
-		int port = ServletActionContext.getRequest().getServerPort(); // 8080
-		String path = scheme+"://"+serverName+":"+port+contextPath+"/";
-		return path;
 	}
 }

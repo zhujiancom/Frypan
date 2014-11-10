@@ -13,6 +13,8 @@ import java.nio.channels.FileChannel;
 import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -27,6 +29,8 @@ public abstract class UploadAction extends Struts2DefaultAction{
 	 */
 	private static final long serialVersionUID = -8480903108899465984L;
 
+	private static final Log logger = LogFactory.getLog(UploadAction.class);
+
 	/*定义缓冲区大小16M*/
 	private static final int BUFFER_SIZE = 16*1024;
 
@@ -35,8 +39,8 @@ public abstract class UploadAction extends Struts2DefaultAction{
 	private String[] imageFilesContentType;
 	private String[] imageFilesFileName;
 
-	protected void upload(){
-		String dirPath = getBasePath()+getDestinationPath();
+	protected void uploadToWebServer(){
+		String dirPath = getUploadPath();
 		checkDir(dirPath);
 		for(int i=0;i<imageFiles.length;i++){
 			String imageName = UUID.randomUUID().toString();
@@ -51,6 +55,10 @@ public abstract class UploadAction extends Struts2DefaultAction{
 				e.printStackTrace();
 			}
 		}
+	}
+
+	protected void uploadToFTPServer(){
+
 	}
 
 	private void checkDir(String dirPath){
@@ -103,12 +111,60 @@ public abstract class UploadAction extends Struts2DefaultAction{
 		return fileName.substring(pos);
 	}
 
-	public String getBasePath(){
-		String basePath = ServletActionContext.getServletContext().getRealPath("/");
-		return basePath;
+	public boolean isAbsolutePath(String destination){
+		String os = System.getProperty("os.name");
+		logger.debug("os = "+os);
+		// windows 下
+		if(os.startsWith("win") || os.startsWith("Win")){
+			if(destination.indexOf(":") != -1){ //D://uploadFile
+				return true;
+			}
+		}
+		// linux 下
+		if(destination.startsWith(File.separator)){
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * 
+	 * @Function 获取本地文件系统格式的绝对路径
+	 * @return
+	 * @author zj
+	 * @Date 2014年11月10日
+	 */
+	public String getLocalRootPath(){
+		String absolutePath = ServletActionContext.getServletContext().getRealPath("/");
+		logger.debug("absolutePath = "+absolutePath);
+		return absolutePath;
+	}
+
+	/**
+	 * 
+	 * @Function 获取server端路径
+	 * @return
+	 * @author zj
+	 * @Date 2014年11月10日
+	 */
+	public String getWebRootPath(){
+		String scheme = ServletActionContext.getRequest().getScheme(); // http
+		String contextPath = ServletActionContext.getRequest().getContextPath();  // project name
+		String serverName = ServletActionContext.getRequest().getServerName(); //localhost
+		int port = ServletActionContext.getRequest().getServerPort(); // 8080
+		String rootPath = scheme+"://"+serverName+":"+port+contextPath+"/";
+		logger.debug("webrootPath = "+rootPath);
+		return rootPath;
 	}
 
 	protected abstract String getDestinationPath();
+
+	public String getUploadPath(){
+		if(isAbsolutePath(getDestinationPath())){
+			return getDestinationPath();
+		}
+		return getLocalRootPath()+File.separator+getDestinationPath();
+	}
 
 	public File[] getImageFiles(){
 		return this.imageFiles;
